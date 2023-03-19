@@ -1,0 +1,12 @@
+[submodule "submodules/gherkin"]
+	path = "submodules/gherkin"
+	url = "https://github.com/sashokbg/gherkin.git"
+	branch = "proxym-main"
+[submodule "submodules/messages"]
+	path = "submodules/messages"
+	url = "https://github.com/sashokbg/messages.git"
+	branch = "proxym-main"
+[submodule "submodules/cucumber-js"]
+	path = submodules/cucumber-js
+	url = https://github.com/sashokbg/cucumber-js.git
+	branch = proxym-main

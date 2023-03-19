@@ -1,0 +1,9 @@
+= Feature: Simple Scenario
+
+== Rule: Simple Rule
+
+=== Scenario: Simple Example
+* Given A
++
+image:img.png[]
+* Then B

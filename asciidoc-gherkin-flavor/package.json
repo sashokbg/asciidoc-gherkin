@@ -1,0 +1,20 @@
+{
+  "name": "@proxym-france/asciidoc-gherkin-flavor",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@cucumber/cucumber": "npm:@proxym-france/cucumber-cucumber@9.0.4"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.2",
+    "ts-node": "^10.9.1"
+  }
+}

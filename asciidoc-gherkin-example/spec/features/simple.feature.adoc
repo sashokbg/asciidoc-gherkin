@@ -1,0 +1,9 @@
+= Feature: Simple Feature
+
+== Rule: Simple Rule
+
+=== Example: Simple Example
+* Given A
++
+image:img.png[]
+* Then B
