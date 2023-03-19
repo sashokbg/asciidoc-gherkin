@@ -1,5 +1,5 @@
 {
-  "name": "@proxym-france/asciidoc-gherkin-flavor",
+  "name": "@asciidoc-gherkin/flavor",
   "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
