@@ -1,11 +1,11 @@
-const DocumentReader = require("../model/document.reader");
-const {fail} = require("assert");
-const {expect} = require("expect");
+import {DocumentReader} from "../model/document.reader";
+
+const NDJSON_FILE = 'src/spec/messages.ndjson';
 
 describe('document reader', () => {
     it('Should read pickles', () => {
         const docReader = new DocumentReader();
-        docReader.getDocuments('messages.ndjson');
+        docReader.getDocuments(NDJSON_FILE);
 
         docReader.documents.forEach(doc => doc.pickles.map(p => p.uri).reduce((prev, current) => {
             if (!prev) {
@@ -19,10 +19,10 @@ describe('document reader', () => {
 
     it('should read test cases lines', () => {
         const docReader = new DocumentReader();
-        docReader.getDocuments('messages.ndjson');
+        docReader.getDocuments(NDJSON_FILE);
 
-        expect(docReader.documents[0].testCases[0].getStatus()).toBe('PASSED');
-        expect(docReader.documents.flatMap(doc => doc.testCases).map(testCase => testCase.getStatus())).toContain('FAILED');
+        expect(docReader.documents[0].testCases[0].getStatus()).toBe('☑');
+        expect(docReader.documents.flatMap(doc => doc.testCases).map(testCase => testCase.getStatus())).toContain('❌');
 
         const lines = docReader.documents.flatMap(doc => doc.testCases).map(testCase => testCase.getLocation());
 
@@ -31,7 +31,7 @@ describe('document reader', () => {
 
     it('should find document for asciidoc', () => {
         const docReader = new DocumentReader();
-        docReader.getDocuments('messages.ndjson');
+        docReader.getDocuments(NDJSON_FILE);
 
         let document = docReader.findDocumentForAsciidoc(['toto', 'Feature: Interview']);
 

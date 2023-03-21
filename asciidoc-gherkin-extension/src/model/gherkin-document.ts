@@ -1,14 +1,17 @@
 import {TestCase} from "./test-case";
+import {TestStep} from "./test-step";
 
 export class GherkinDocument {
     public testCases: Array<TestCase>;
-    private pickles: any[];
+    public testSteps: TestStep[];
+    public pickles: any[];
     private gherkinDocument: any;
     public title: string;
 
     constructor(gherkinDocument: any) {
         this.testCases = [];
         this.pickles = [];
+        this.testSteps = [];
         this.gherkinDocument = gherkinDocument;
         this.title = this.gherkinDocument.feature.keyword + ': ' + this.gherkinDocument.feature.name;
     }
@@ -23,13 +26,21 @@ export class GherkinDocument {
     }
 
     addTestStepFinished(testStepFinished: any) {
+        // Add Test Step
+        const testStep = this.testCases.flatMap(tc => tc.gherkin.testSteps).find(st => st.id === testStepFinished.testStepId);
+        const testStepPickle = this.pickles.flatMap(p => p.steps).find(stepPickle => stepPickle.id === testStep.pickleStepId);
+        const astNode = this.findAstNode('id', testStepPickle.astNodeIds[0], this.gherkinDocument);
+
+        this.testSteps.push(new TestStep(testStepPickle, astNode[0]?.location.line, testStepFinished.testStepResult.status));
+
+        // Test Case update
         let testCaseStartedEvents = this.testCases.flatMap(testCase => testCase.startEvents);
         let testCaseStartedEvent = testCaseStartedEvents.find(event => event.id === testStepFinished.testCaseStartedId);
         if(!testCaseStartedEvent) {
             return;
         }
         let testCase = this.testCases.find(testCase => testCase.gherkin.id === testCaseStartedEvent.testCaseId);
-        testCase?.addFinishEvent(testStepFinished);
+        testCase?.addStepFinishEvent(testStepFinished);
     }
 
     addTestCase(testCase: any) {
@@ -44,9 +55,11 @@ export class GherkinDocument {
             results.push(obj);
             return results;
         } else {
-            for (const [k, v] of Object.entries(obj)) {
-                if (typeof v === "object") {
-                    this.findAstNode(key, value, v, results);
+            if (typeof obj === "object") {
+                for (const [k, v] of Object.entries(obj)) {
+                    if (typeof v === "object") {
+                        this.findAstNode(key, value, v, results);
+                    }
                 }
             }
         }

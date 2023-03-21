@@ -20,7 +20,7 @@ export class TestCase {
         this.startEvents.push(startEvent);
     }
 
-    addFinishEvent(finishEvent: any) {
+    addStepFinishEvent(finishEvent: any) {
         this.finishEvents.push(finishEvent);
     }
 
