@@ -15,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "asciidoctor": "^2.2.6",
     "@cucumber/messages": "npm:@proxym-france/cucumber-messages@21.0.1",
     "expect": "^29.5.0",
     "@babel/preset-env": "^7.20.2",

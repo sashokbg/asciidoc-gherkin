@@ -1,8 +1,8 @@
 import {loadConfiguration, loadSupport, runCucumber} from '@cucumber/cucumber/api'
 import asciidoctor from 'asciidoctor';
-import {plugin} from "@proxym-france/asciidoc-gherkin-extension";
 import {JSDOM} from "jsdom";
 import * as fs from "fs";
+import {plugin} from "@asciidoc-gherkin/extension";
 
 export const cucumberRunner = async function (feature: string): Promise<Document> {
     const {runConfiguration} = await loadConfiguration({profiles: ['test']})

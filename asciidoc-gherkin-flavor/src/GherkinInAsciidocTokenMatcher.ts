@@ -76,9 +76,3 @@ export class GherkinInAsciidocTokenMatcher extends GherkinInMarkdownTokenMatcher
     return cells
   }
 }
-
-CustomFlavorRegistry.getInstance().registerFlavor(
-  'asciidoc',
-  'adoc',
-  new GherkinInAsciidocTokenMatcher()
-)

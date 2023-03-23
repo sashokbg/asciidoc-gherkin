@@ -12,8 +12,5 @@
     "asciidoc-gherkin-example",
     "asciidoc-gherkin-extension",
     "asciidoc-gherkin-flavor"
-  ],
-  "dependencies": {
-    "@proxym-france/asciidoc-gherkin-extension": "^1.0.0"
-  }
+  ]
 }

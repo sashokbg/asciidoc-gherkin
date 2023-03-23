@@ -1,5 +1,5 @@
 const {CustomFlavorRegistry} = require("@cucumber/gherkin");
-const {GherkinInAsciidocTokenMatcher} = require("@proxym-france/asciidoc-gherkin-flavor");
+const {GherkinInAsciidocTokenMatcher} = require("@asciidoc-gherkin/flavor");
 
 CustomFlavorRegistry.getInstance().registerFlavor('asciidoc', 'adoc', new GherkinInAsciidocTokenMatcher());
 
