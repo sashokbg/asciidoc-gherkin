@@ -21,7 +21,7 @@ export const cucumberRunner = async function (feature: string): Promise<Document
 
     let converted = doc.convert();
     try {
-        fs.writeFileSync('debug.html', converted);
+        fs.writeFileSync('spec/features/debug.html', converted);
     } catch (err) {
         console.error(err);
     }

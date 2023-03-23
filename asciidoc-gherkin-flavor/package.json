@@ -10,7 +10,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "peerDependencies": {
     "@cucumber/cucumber": "npm:@proxym-france/cucumber-cucumber@9.0.4"
   },
   "devDependencies": {
