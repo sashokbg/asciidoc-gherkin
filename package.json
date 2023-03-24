@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "npm run build --ws",
+    "build:watch": "npm run build --ws"
   },
   "keywords": [],
   "author": "",

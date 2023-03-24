@@ -1,1 +1,1 @@
-export {plugin} from "./plugin";
+export {register} from "./plugin";

@@ -19,8 +19,7 @@ export type Insertion = {
     inline: boolean
 }
 
-
-export const plugin = function (registry: any) {
+export const register = function (registry: any) {
     registry.preprocessor(function () {
         const self = this
         self.process(function (doc: any, reader: any) {

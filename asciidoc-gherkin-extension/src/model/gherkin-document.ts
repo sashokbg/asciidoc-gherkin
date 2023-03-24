@@ -28,7 +28,18 @@ export class GherkinDocument {
     addTestStepFinished(testStepFinished: any) {
         // Add Test Step
         const testStep = this.testCases.flatMap(tc => tc.gherkin.testSteps).find(st => st.id === testStepFinished.testStepId);
+        if(!testStep){
+            console.log('Undefined testStep for "testStepFinished" event. Skipping');
+            return;
+        }
+
         const testStepPickle = this.pickles.flatMap(p => p.steps).find(stepPickle => stepPickle.id === testStep.pickleStepId);
+
+        if(!testStepPickle || !testStepPickle.astNodeIds || testStepPickle.astNodeIds.length === 0) {
+            console.log('Undefined pickle for "testStepFinished" event. Skipping');
+            return;
+        }
+
         const astNode = this.findAstNode('id', testStepPickle.astNodeIds[0], this.gherkinDocument);
 
         this.testSteps.push(new TestStep(testStepPickle, astNode[0]?.location.line, testStepFinished.testStepResult.status));

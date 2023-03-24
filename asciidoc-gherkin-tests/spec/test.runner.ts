@@ -2,7 +2,7 @@ import {loadConfiguration, loadSupport, runCucumber} from '@cucumber/cucumber/ap
 import asciidoctor from 'asciidoctor';
 import {JSDOM} from "jsdom";
 import * as fs from "fs";
-import {plugin} from "@asciidoc-gherkin/extension";
+import {register} from "@asciidoc-gherkin/extension";
 
 export const cucumberRunner = async function (feature: string): Promise<Document> {
     const {runConfiguration} = await loadConfiguration({profiles: ['test']})
@@ -15,7 +15,7 @@ export const cucumberRunner = async function (feature: string): Promise<Document
 
     const adoc = asciidoctor();
     const registry = adoc.Extensions.create()
-    plugin(registry)
+    register(registry)
 
     const doc = adoc.loadFile(feature, {'extension_registry': registry})
 
