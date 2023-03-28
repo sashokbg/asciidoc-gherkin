@@ -106,7 +106,7 @@ describe('document', () => {
             };
 
         doc.pickles = [
-            {
+            {"pickle": {
                 "id": "a62ef25e-0ac0-4dd1-8ed8-eb8fb54ecfe0",
                 "uri": "../documentation/modules/development/outline.feature.adoc",
                 "astNodeIds": ["0be759bb-146c-4ee6-9473-f54ea23cb7af"],
@@ -129,7 +129,7 @@ describe('document', () => {
                     "type": "Outcome",
                     "astNodeIds": ["d2495d31-61b7-45e6-a531-b19336871c87"]
                 }]
-            }
+            }}
         ]
         doc.addTestCase(testCase);
 

@@ -1,0 +1,5 @@
+= Feature: Non-Implemented Steps
+
+== Rule: Non-Implemented Rule
+=== Example: Non-Implemented Example
+- Given Non Implemented Step

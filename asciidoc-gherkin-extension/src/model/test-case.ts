@@ -1,13 +1,15 @@
-import {GherkinDocument} from "./gherkin-document";
+import {GherkinDocument, Pickle} from "./gherkin-document";
+import {failedSvg} from "./failed.svg";
+import {FAILED, PASSED} from "./status";
 
 export class TestCase {
     public gherkin: any;
-    private pickle: any;
+    private pickle: Pickle;
     private document: GherkinDocument;
     public startEvents: any[];
     private finishEvents: any[];
 
-    constructor(gherkin: any, pickle: any, document: GherkinDocument) {
+    constructor(gherkin: any, pickle: Pickle, document: GherkinDocument) {
         this.gherkin = gherkin;
         this.pickle = pickle;
         this.document = document;
@@ -26,13 +28,13 @@ export class TestCase {
 
     getStatus() {
         if(this.finishEvents.find(event => event.testStepResult.status !== 'PASSED')){
-            return '❌';
+            return FAILED;
         }
-        return '☑';
+        return PASSED;
     }
 
     getLocation() {
-        let astNodeId = this.pickle.astNodeIds[0];
+        let astNodeId = this.pickle.pickle.astNodeIds[0];
         let astNode = this.document.findAstNode('id', astNodeId);
         return astNode[0]?.location.line;
     }

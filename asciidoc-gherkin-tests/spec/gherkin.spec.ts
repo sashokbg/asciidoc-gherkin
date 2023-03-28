@@ -19,9 +19,15 @@ describe('Gherkin With Asciidoc', () => {
 
     it('Insert results on Scenarios', async () => {
         let document = await cucumberRunner('spec/features/simple-scenario.feature.adoc');
-
         expect(document.getElementById('_scenario_simple_example').textContent).toContain('☑');
     });
+
+    it('Puts question mark for non-implemented features', async () => {
+        let document = await cucumberRunner('spec/features/non-implemented-steps.feature.adoc');
+
+        expect(document.getElementById('_example_non_implemented_example').textContent).toContain('🯄');
+    });
+
 
     it('Insert results on Steps', async () => {
         let document = await cucumberRunner('spec/features/simple-scenario.feature.adoc');

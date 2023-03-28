@@ -23,12 +23,11 @@ export const register = function (registry: any) {
     registry.preprocessor(function () {
         const self = this
         self.process(function (doc: any, reader: any) {
+            console.log('Processor started for', reader.file);
             if (!reader.lines.find((line: string) => line.toLowerCase().includes('feature:')) || reader.lines.length === 1) {
+                console.log('Skipping', reader.file);
                 return reader;
             }
-
-            //const dir = fs.readdirSync('images');
-            //cleanImages(dir);
 
             const docReader = new DocumentReader();
             docReader.getDocuments('messages.ndjson');
@@ -56,7 +55,6 @@ export const register = function (registry: any) {
                     inline: true
                 });
             }
-
 
             let result = insert(reader.source_lines, insertions);
             reader.lines = result.reverse();

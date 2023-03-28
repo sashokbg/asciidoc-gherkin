@@ -1,10 +1,14 @@
 import {TestCase} from "./test-case";
 import {TestStep} from "./test-step";
 
+export type Pickle = {
+    pickle: any
+}
+
 export class GherkinDocument {
     public testCases: Array<TestCase>;
     public testSteps: TestStep[];
-    public pickles: any[];
+    public pickles: Pickle[];
     private gherkinDocument: any;
     public title: string;
 
@@ -29,14 +33,12 @@ export class GherkinDocument {
         // Add Test Step
         const testStep = this.testCases.flatMap(tc => tc.gherkin.testSteps).find(st => st.id === testStepFinished.testStepId);
         if(!testStep){
-            console.log('Undefined testStep for "testStepFinished" event. Skipping');
             return;
         }
 
-        const testStepPickle = this.pickles.flatMap(p => p.steps).find(stepPickle => stepPickle.id === testStep.pickleStepId);
+        const testStepPickle = this.pickles.flatMap(p => p.pickle.steps).find(stepPickle => stepPickle.id === testStep.pickleStepId);
 
         if(!testStepPickle || !testStepPickle.astNodeIds || testStepPickle.astNodeIds.length === 0) {
-            console.log('Undefined pickle for "testStepFinished" event. Skipping');
             return;
         }
 
@@ -55,7 +57,7 @@ export class GherkinDocument {
     }
 
     addTestCase(testCase: any) {
-        const pickles = this.pickles.filter(pickle => pickle.id === testCase.pickleId);
+        const pickles = this.pickles.filter(pickle => pickle.pickle.id === testCase.pickleId);
         if (pickles && pickles.length > 0) {
             this.testCases.push(new TestCase(testCase, pickles[0], this));
         }
@@ -78,8 +80,8 @@ export class GherkinDocument {
         return results;
     }
 
-    addPickle(pickle: any) {
-        let astNode = this.findAstNode('id', pickle.astNodeIds[0]);
+    addPickle(pickle: Pickle) {
+        let astNode = this.findAstNode('id', pickle.pickle.astNodeIds[0]);
 
         if (astNode && astNode.length > 0) {
             this.pickles.push(pickle);

@@ -23,10 +23,7 @@ export class DocumentReader {
                 this.documents.push(new GherkinDocument(obj.gherkinDocument));
             }
             if (obj.pickle) {
-                this.documents.forEach(doc => doc.addPickle(obj.pickle));
-            }
-            if (obj.pickle) {
-                this.documents.forEach(doc => doc.addPickle(obj.pickle));
+                this.documents.forEach(doc => doc.addPickle(obj));
             }
             if (obj.testCase) {
                 this.documents.forEach(doc => doc.addTestCase(obj.testCase));
