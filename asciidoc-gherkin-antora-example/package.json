@@ -1,0 +1,21 @@
+{
+  "name": "@asciidoc-gherkin/antora-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:doc": "npx antora --fetch antora-playbook.yml --stacktrace",
+    "test": "npx proxym-france-cucumber-js"
+  },
+  "devDependencies": {
+    "antora": "^3.1.2",
+    "@cucumber/cucumber": "npm:@proxym-france/cucumber-cucumber@9.0.4",
+    "@types/puppeteer": "^7.0.4",
+    "puppeteer": "^19.7.2",
+    "expect": "^29.5.0",
+    "typescript": "^5.0.2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

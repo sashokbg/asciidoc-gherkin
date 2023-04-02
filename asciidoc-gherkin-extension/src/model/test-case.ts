@@ -1,5 +1,4 @@
 import {GherkinDocument, Pickle} from "./gherkin-document";
-import {failedSvg} from "./failed.svg";
 import {FAILED, PASSED} from "./status";
 
 export class TestCase {

@@ -6,7 +6,7 @@ export type Pickle = {
 }
 
 export class GherkinDocument {
-    public testCases: Array<TestCase>;
+    public testCases: TestCase[];
     public testSteps: TestStep[];
     public pickles: Pickle[];
     private gherkinDocument: any;

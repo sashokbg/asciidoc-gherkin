@@ -1,0 +1,14 @@
+site:
+  title: 'Asciidoc Gherkin Example'
+content:
+  sources:
+    - url: ../
+      branches: HEAD
+      start_path: asciidoc-gherkin-antora-example
+asciidoc:
+  extensions:
+    - '../asciidoc-gherkin-extension/'
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
