@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build:doc": "npx antora --fetch antora-playbook.yml --stacktrace",
-    "test": "npx proxym-france-cucumber-js"
+    "test:cucumber": "npx proxym-france-cucumber-js"
   },
   "devDependencies": {
     "antora": "^3.1.2",

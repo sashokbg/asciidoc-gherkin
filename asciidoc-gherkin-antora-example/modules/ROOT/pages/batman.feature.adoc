@@ -1,0 +1,99 @@
+= Feature: Batman
+
+Batman is the *definitive* superhero who protects link:https://en.wikipedia.org/wiki/Gotham_City[Gotham City]
+
+On his watch the citizens can sleep calm !
+
+.Batman's Photo by Clark Kent
+image::batman.jpeg[width=512]
+
+[quote,Harvey Dent,The Dark Knight]
+"The night is darkest just before the dawn.
+And I promise you, the dawn is coming."
+
+== Rule: Batman is well-equipped
+
+=== Example: Batman has shuriken
+
+- Given Batman is surrounded by villains
+- When He throws his bat-shuriken
+- Then It will bounce of off the baddies' guns
++
+CAUTION: Batman never hurts people
++
+.See how the shuriken works
+[%collapsible]
+====
+image:batman-shuriken.gif[]
+====
+
+=== Example: Batman has other expensive gadgets
+
+- Given the following gadgets
++
+[%header,cols="1,2"]
+|===
+| Gadget Name | Value
+| Rocket Car | 5 000 000$
+| Bat Plane | 10 000 000$
+| Bat pistol | 1000$
+|===
+- When batman looses one
+- Then Alfred will replace it
+
+== Rule: Batman's has Arch-nemesis
+
+=== Scenario Outline: Fighting a villain
+
+- Given Batman encounters "<Name>"
+- When Batman fights him in the movie "<Movie>"
+- Then Batman wins
+
+.The toughest villains
+=== Examples:
+
+[%header,cols="1,1,1"]
+|===
+|Name           | Picture               | Movie
+| The Joker     | image:joker.jpg[]     | Batman (1989)
+| The Riddler   | image:riddler.jpg[]   | Bathamn Forever
+| Bane          | image:bane.png[]      | The Dark Knight Rises
+|===
+
+== Rule: Batman Always Shows Up
+
+image:batmobile.gif[]
+
+=== Example: When the police calls him with the bat-light
+
+- Given The police put the #bat-light# in the sky
+- When Batman sees it
+- Then He arrives at the crime scene
+
+=== Example: When the Joker robs a bank
+
+- Given the Joker has robbed a bank
+- When the police reports the crime
+- Then Batman arrives at crime scene
+
+== Rule: Batman is a Hacker
+
+=== Example: Batman can Hack in Python
+
+- Given Batman encounters a terminal in the lair of Bane
+- When Batman enters the following python code
++
+[source,python]
+----
+def solution(x):
+    string = str(x)
+
+    if string[0] == '-':
+        return int('-'+string[:0:-1])
+    else:
+        return int(string[::-1])
+
+print(solution(-231))
+print(solution(345))
+----
+- Then He manages to hack into the terminal

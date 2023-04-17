@@ -1,7 +1,0 @@
-= Feature: Main Page
-
-== Rule: First Rule
-=== Example: I rule
-- Given a first rule
-- When I rule
-- Then you don't rule

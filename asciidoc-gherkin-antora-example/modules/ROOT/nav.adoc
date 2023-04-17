@@ -1,1 +1,1 @@
-* xref:main-page.feature.adoc[]
+* xref:batman.feature.adoc[]

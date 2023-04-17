@@ -2,6 +2,9 @@
 
 This project's goal is to introduce the ability to write Gherkin BDD scenarios in Asciidoc.
 
+Watch the showcase video !
+[![Gherkin Asciidoc Showcase](https://img.youtube.com/vi/wtefT9kWMxI/0.jpg)](https://www.youtube.com/watch?v=wtefT9kWMxI)
+
 ## Project Structure
 
 - **asciidoc-gherkin-flavor**

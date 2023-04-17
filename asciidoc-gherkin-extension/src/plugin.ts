@@ -30,7 +30,14 @@ export const register = function (registry: any) {
             }
 
             const docReader = new DocumentReader();
-            docReader.getDocuments('messages.ndjson');
+
+            let messagesFileLocation = 'messages.ndjson';
+            if (!fs.existsSync(messagesFileLocation)) {
+                console.log(`Messages file not found at ${messagesFileLocation}. Please run your cucumber tests first !`)
+                return reader;
+            }
+
+            docReader.getDocuments(messagesFileLocation);
             let currentDocument = docReader.findDocumentForAsciidoc(reader.lines);
 
             let insertions: Insertion[] = [];
